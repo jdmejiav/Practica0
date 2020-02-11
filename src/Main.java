@@ -12,8 +12,7 @@ public class Main{
 		Scanner sc = new Scanner (System.in);
 		int size = Integer.parseInt(sc.nextLine().trim());
 		int arr[] = main.generarNumeros(size);
-		System.out.println("If everything goes well, it shoul print a million of numbers :)"+'\n');
-		main.printNumbers(arr);
+		System.out.println("Let's will be relistic, it wouldn't ever finished");
 	}
 
 	private int[] generarNumeros(int size){

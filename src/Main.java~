@@ -24,6 +24,7 @@ public class Main{
 			if (this.max<arr[i])this.max=arr[i];
 			if (this.min>arr[i])this.min=arr[i];
 		}
+		return arr;
 		
 	}
 	private void printNumbers(int []arr){
