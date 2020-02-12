@@ -1,5 +1,5 @@
 import java.util.Scanner;
-//import BubbleSort;
+
 public class Main{
 
 	private int max;
@@ -12,7 +12,6 @@ public class Main{
 		Scanner sc = new Scanner (System.in);
 		int size = Integer.parseInt(sc.nextLine().trim());
 		int arr[] = main.generarNumeros(size);
-		System.out.println("Let's will be relistic, it wouldn't ever finished");
 		BubbleSort bb = new BubbleSort(arr);
 	}
 
@@ -26,6 +25,9 @@ public class Main{
 		}
 		return arr;
 	}
-
+	private void printNumbers(int arr[]){
+		for (int i =0 ;i<arr.length;i++){
+			System.out.println(arr[i]);
+		}
+	}
 }
-

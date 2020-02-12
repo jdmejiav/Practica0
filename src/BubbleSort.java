@@ -13,8 +13,8 @@ public class BubbleSort{
 	}
 	public void ordenar(){
 		for (int i = 0;i<this.arr.length-1;i++){
-			for (int j = 0;j <this. arr.length-i;i++){
-				if (arr[j]>arr[j+1]){
+			for (int j = 0;j <this.arr.length-i-1;j++){
+				if (arr[j]<arr[j+1]){
 					int temp = this.arr[j];
 					this.arr[j]= this.arr[j+1];
 					this.arr[j+1]=temp;
