@@ -12,7 +12,8 @@ public class Main{
 		Scanner sc = new Scanner (System.in);
 		int size = Integer.parseInt(sc.nextLine().trim());
 		int arr[] = main.generarNumeros(size);
-		BubbleSort bb = new BubbleSort(arr);
+//		BubbleSort bb = new BubbleSort(arr);
+		HybridSort gb = new HybridSort(arr);
 	}
 
 	private int[] generarNumeros(int size){

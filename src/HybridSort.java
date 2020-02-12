@@ -1,221 +1,267 @@
 
-class GFG
+public class HybridSort {
 
-{
 
-	static int RUN = 32;
+	static int RUN = 32; 
 
-	// this function sorts array from left index to
 
-	// to right index which is of size atmost RUN
 
-	public static void insertionSort(int[] arr, int left, int right){
+	// this function sorts array from left index to 
 
-		for (int i = left + 1; i <= right; i++)
+	// to right index which is of size atmost RUN 
 
-		{
+	public static void insertionSort(int[] arr, int left, int right) 
 
-			int temp = arr[i];
+	{ 
 
-			int j = i - 1;
+		for (int i = left + 1; i <= right; i++) 
+
+		{ 
+
+			int temp = arr[i]; 
+
+			int j = i - 1; 
 
 			while (arr[j] > temp && j >= left)
 
 			{
 
-				arr[j + 1] = arr[j];
+				arr[j + 1] = arr[j]; 
 
-				j--;
+				j--; 
+				if (j==-1)break;
+			} 
 
-			}
+			arr[j + 1] = temp; 
 
-			arr[j + 1] = temp;
+		} 
 
-		}
+	} 
 
-	}
 
-	// merge function merges the sorted runs
 
-	public static void merge(int[] arr, int l, int m, int r) {
+	// merge function merges the sorted runs 
 
-		// original array is broken in two parts
+	public static void merge(int[] arr, int l, 
 
-		// left and right array
+								int m, int r) 
 
-		int len1 = m - l + 1, len2 = r - m;
+	{ 
 
-		int[] left = new int[len1];
+		// original array is broken in two parts 
 
-		int[] right = new int[len2];
+		// left and right array 
 
-		for (int x = 0; x < len1; x++)
+		int len1 = m - l , len2 = r - m;
 
-		{
+		int[] left = new int[Math.abs(len1)];
 
-			left[x] = arr[l + x];
+		int[] right = new int[Math.abs(len2)];
 
-		}
+		for (int x = 0; x < len1; x++) 
 
-		for (int x = 0; x < len2; x++)
+		{ 
 
-		{
+			left[x] = arr[l + x]; 
 
-			right[x] = arr[m + 1 + x];
+		} 
 
-		}
+		for (int x = 0; x < len2; x++) 
 
-		int i = 0;
+		{ 
 
-		int j = 0;
+			right[x] = arr[m + 1 + x]; 
 
-		int k = l;
+		} 
 
-		// after comparing, we merge those two array
 
-		// in larger sub array
 
-		while (i < len1 && j < len2) {
+		int i = 0; 
 
-			if (left[i] <= right[j]) {
+		int j = 0; 
 
-				arr[k] = left[i];
+		int k = l; 
 
-				i++;
 
-			}
 
-			else {
+		// after comparing, we merge those two array 
 
-				arr[k] = right[j];
+		// in larger sub array 
 
-				j++;
+		while (i < len1 && j < len2) 
 
-			}
+		{ 
 
-			k++;
+			if (left[i] <= right[j]) 
 
-		}
+			{ 
 
-		// copy remaining elements of left, if any
+				arr[k] = left[i]; 
 
-		while (i < len1) {
+				i++; 
 
-			arr[k] = left[i];
+			} 
 
-			k++;
+			else
 
-			i++;
+			{ 
 
-		}
+				arr[k] = right[j]; 
 
-		// copy remaining element of right, if any
+				j++; 
 
-		while (j < len2)
+			} 
 
-		{
+			k++; 
 
-			arr[k] = right[j];
+		} 
 
-			k++;
 
-			j++;
 
-		}
+		// copy remaining elements of left, if any 
 
-	}
+		while (i < len1) 
 
-	// iterative Timsort function to sort the
+		{ 
 
-	// array[0...n-1] (similar to merge sort)
+			arr[k] = left[i]; 
 
-	public static void timSort(int[] arr, int n)
+			k++; 
 
-	{
+			i++; 
 
-		// Sort individual subarrays of size RUN
+		} 
 
-		for (int i = 0; i < n; i += RUN) {
 
-			insertionSort(arr, i, Math.min((i + 31), (n - 1)));
 
-		}
+		// copy remaining element of right, if any 
 
-		// start merging from size RUN (or 32). It will merge
+		while (j < len2) 
 
-		// to form size 64, then 128, 256 and so on ....
+		{ 
 
-		for (int size = RUN; size < n; size = 2 * size) {
+			arr[k] = right[j]; 
 
-			// pick starting point of left sub array. We
+			k++; 
 
-			// are going to merge arr[left..left+size-1]
+			j++; 
 
-			// and arr[left+size, left+2*size-1]
+		} 
 
-			// After every merge, we increase left by 2*size
+	} 
 
-			for (int left = 0; left < n; left += 2 * size)
 
-			{
 
-				// find ending point of left sub array
+	// iterative Timsort function to sort the 
 
-				// mid+1 is starting point of right sub array
+	// array[0...n-1] (similar to merge sort) 
 
-				int mid = left + size - 1;
+	public static void timSort(int[] arr, int n) 
 
-				int right = Math.min((left + 2 * size - 1), (n - 1));
+	{ 
 
-				// merge sub array arr[left.....mid] &
+		
 
-				// arr[mid+1....right]
+		// Sort individual subarrays of size RUN 
 
-				merge(arr, left, mid, right);
+		for (int i = 0; i < n; i += RUN) 
 
-			}
+		{ 
 
-		}
+			insertionSort(arr, i, Math.min((i + 31), (n - 1))); 
 
-	}
+		} 
 
-	// utility function to print the Array
 
-	public static void printArray(int[] arr, int n) {
 
-		for (int i = 0; i < n; i++)
+		// start merging from size RUN (or 32). It will merge 
 
-		{
+		// to form size 64, then 128, 256 and so on .... 
 
-			System.out.print(arr[i] + " ");
+		for (int size = RUN; size < n; size = 2 * size) 
 
-		}
+		{ 
 
-		System.out.print("\n");
+			
 
-	}
+			// pick starting point of left sub array. We 
 
-	// Driver code
+			// are going to merge arr[left..left+size-1] 
 
-	public static void main(String[] args)
+			// and arr[left+size, left+2*size-1] 
 
-	{
+			// After every merge, we increase left by 2*size 
 
-		int[] arr = { 5, 21, 7, 23, 19 };
+			for (int left = 0; left < n; left += 2 * size) 
 
-		int n = arr.length;
+			{ 
 
-		System.out.print("Given Array is\n");
+				
 
-		printArray(arr, n);
+				// find ending point of left sub array 
 
-		timSort(arr, n);
+				// mid+1 is starting point of right sub array 
 
-		System.out.print("After Sorting Array is\n");
+				int mid = left + size - 1; 
 
-		printArray(arr, n);
+				int right = Math.min((left + 2 * size - 1), (n - 1)); 
 
-	}
+
+
+				// merge sub array arr[left.....mid] & 
+
+				// arr[mid+1....right] 
+
+				merge(arr, left, mid, right); 
+
+			} 
+
+		} 
+
+	} 
+
+
+
+	// utility function to print the Array 
+
+	public static void printArray(int[] arr, int n) 
+
+	{ 
+
+		for (int i = 0; i < n; i++) 
+
+		{ 
+
+			System.out.print(arr[i] + " "); 
+
+		} 
+
+		System.out.print("\n"); 
+
+	} 
+
+
+
+	// Driver code 
+
+	public HybridSort(int []arr) { 
+
+		int n = arr.length; 
+
+		System.out.print("Given Array is\n"); 
+
+		printArray(arr, n); 
+
+
+
+		timSort(arr, n); 
+
+
+
+		System.out.print("After Sorting Array is\n"); 
+
+		printArray(arr, n); 
+
+	} 
 
 }
-// This code has been contributed by 29AjayKumar
