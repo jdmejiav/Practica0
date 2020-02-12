@@ -211,7 +211,7 @@ public class HybridSort {
 				// merge sub array arr[left.....mid] & 
 
 				// arr[mid+1....right] 
-
+				if (n!=arr.length)
 				merge(arr, left, mid, right); 
 
 			} 
@@ -244,24 +244,11 @@ public class HybridSort {
 
 	// Driver code 
 
-	public HybridSort(int []arr) { 
-
-		int n = arr.length; 
-
-		System.out.print("Given Array is\n"); 
-
-		printArray(arr, n); 
-
-
-
-		timSort(arr, n); 
-
-
-
-		System.out.print("After Sorting Array is\n"); 
-
-		printArray(arr, n); 
-
-	} 
+	public HybridSort(int []arr) {
+		int n = arr.length;
+		timSort(arr, n);
+		System.out.print("After Sorting Array is\n");
+		printArray(arr, n);
+	}
 
 }
