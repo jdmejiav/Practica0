@@ -1,3 +1,4 @@
+import javax.sound.midi.SysexMessage;
 
 public class HybridSort {
 
@@ -119,9 +120,12 @@ public class HybridSort {
 
 	public HybridSort(int[] arr) {
         int n = arr.length;
+        long inicio = System.currentTimeMillis();
         timSort(arr, n);
-        System.out.print("After Sorting Array is\n");
-        printArray(arr, n);
+        long fin = System.currentTimeMillis();
+        System.out.println("Tiempo de ejecución Hybrid Sort "+(fin-inicio)+"(ms)");
+        //System.out.print("After Sorting Array is\n");
+        //printArray(arr, n);
     }
 
 }

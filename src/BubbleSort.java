@@ -1,3 +1,4 @@
+import javax.sound.midi.SysexMessage;
 import java.util.Scanner;
 
 public class BubbleSort{
@@ -6,11 +7,12 @@ public class BubbleSort{
 
 	public BubbleSort(int []arr){
 		this.arr=arr;
+		long inicio = System.currentTimeMillis();
 		ordenar();
-		System.out.println("Antes de imprimir");
+		long fin = System.currentTimeMillis();
+		System.out.println("Tiempo de ejecución Ordenamiento Burbuja "+(fin-inicio)+"(ms)");
 		imprimir();
-		System.out.println("Después de imprimir");
-	}
+		}
 	public void ordenar(){
 		for (int i = 0;i<this.arr.length-1;i++){
 			for (int j = 0;j <this.arr.length-i-1;j++){

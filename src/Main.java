@@ -17,6 +17,7 @@ public class Main{
 	}
 
 	private int[] generarNumeros(int size){
+		long inicio=System.currentTimeMillis();
 		int arr[]= new int[size];
 
 		for (int i=0;i<size;i++){
@@ -24,6 +25,8 @@ public class Main{
 			if (this.max<arr[i])this.max=arr[i];
 			if (this.min>arr[i])this.min=arr[i];
 		}
+		long fin = System.currentTimeMillis();
+		System.out.println("Tiempo algoritmo generador de números "+(fin-inicio)+"(ms)");
 		return arr;
 	}
 	private void printNumbers(int arr[]){
