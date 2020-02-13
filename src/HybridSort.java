@@ -7,7 +7,7 @@ public class HybridSort {
 
 	// this function sorts array from left index to
 	// to right index which is of size atmost RUN
-	public static void insertionSort(int[] arr, int left, int right)
+	public void insertionSort(int[] arr, int left, int right)
 	{
 		for (int i = left + 1; i <= right; i++)
 		{
@@ -24,7 +24,7 @@ public class HybridSort {
 	}
 
 	// merge function merges the sorted runs
-	public static void merge(int[] arr, int l,
+	public void merge(int[] arr, int l,
 							 int m, int r) {
 		// original array is broken in two parts
 		// left and right array
@@ -74,7 +74,7 @@ public class HybridSort {
 	}
 	// iterative Timsort function to sort the
 	// array[0...n-1] (similar to merge sort)
-	public static void timSort(int[] arr, int n)
+	public void timSort(int[] arr, int n)
 	{
 
 		// Sort individual subarrays of size RUN
@@ -108,7 +108,7 @@ public class HybridSort {
 	}
 
 	// utility function to print the Array
-	public static void printArray(int[] arr, int n)
+	public void printArray(int[] arr, int n)
 	{
 		for (int i = 0; i < n; i++)
 		{

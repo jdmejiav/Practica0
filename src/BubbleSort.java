@@ -11,7 +11,7 @@ public class BubbleSort{
 		ordenar();
 		long fin = System.currentTimeMillis();
 		System.out.println("Tiempo de ejecución Ordenamiento Burbuja "+(fin-inicio)+"(ms)");
-		imprimir();
+		//imprimir();
 		}
 	public void ordenar(){
 		for (int i = 0;i<this.arr.length-1;i++){
