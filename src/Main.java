@@ -27,7 +27,7 @@ public class Main{
 			}else if (opcion.trim().equals("2")){
 				HybridSort hb = new HybridSort(arr.clone());
 			}
-		}while(opcion.trim().equals("3"));
+		}while(!opcion.trim().equals("3"));
 	}
 
 
